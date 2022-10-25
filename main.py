@@ -1,2 +1,4 @@
-a = 20;
-print(a);
+a = 20
+b = 30
+c = a+b
+print(a,b,c)
