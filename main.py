@@ -1,44 +1,50 @@
-
 # selenium4
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-
 import time
 
-
-# 이 부분.. 자바를 설치 안 하면 패키징 관련 에러 무지 뜸
 from webdriver_manager.chrome import ChromeDriverManager
-# from selenium.webdriver.common.by import By
-
-#driver 객체 만들고 url 문자열을 driver.get 함수로 호출
-#DRIVER_PATH = 'Users/kys/Documents/GitHub/selenium/chromedriver.exe'
-
-OPTIONS = webdriver.ChromeOptions()
-# 서비스에 사용될 옵션 추가(안하면 deprecated 에러 무지뜸)
-
-# 드라이버 경로
 DRIVER_PATH = ChromeDriverManager().install()
-print(DRIVER_PATH,'<<경로')
-#driver = webdriver.Chrome(options=options, service=service_obj)
+OPTIONS = webdriver.ChromeOptions()
 
-
+# 드라이버
 driver = webdriver.Chrome(service=Service(DRIVER_PATH),options=OPTIONS)
-
-#n초 딜레이
-# driver.implicitly_wait(20000)
-driver.get("https://www.hsd.co.kr/menu/menu_list")
-# driver.get('http://drkus.dothome.co.kr/main/')
 driver.implicitly_wait(5)
-# css seletor으로 class명 찾기 <h4 class="h fz_03"> ... fz_03
-# li 태그로 리스트 존재 시, 첫 번째 배열 title 객체의 [0] 값을 가리킨다.
-# li 1번째 : 더블함박
-# li 2번째 : 해바라기
-title = driver.find_elements(By.CSS_SELECTOR,"h4.h.fz_03")
-# print(title[i].text)
 
-#반복문 연습, 객체 개수 구하기 len 함수 이용. .count 쓰려다 망했음
-print(len(title))
-for i in range(len(title)) :
-    print(title[i].text)
+# 프로젝트 관련 코드
+# driver.get('http://drkus.dothome.co.kr/')
+# imgObj = driver.find_elements(By.CSS_SELECTOR,'div.jumbotron')
+# print(imgObj[0].text)
+
+#파이썬 문법
+def delay(timeVal):
+    time.sleep(timeVal)
+    if timeVal < 100 :
+        print(timeVal,'보다 작다.')
+    return 0
+delay(10)
+
+# 슬라이싱
+# 0,1,2,3,4
+# -5,-4,-3,-2,-1
+stdList = ['안','녕','하','세','요']
+print(stdList[1:3]) # 녕 하
+print(stdList[1:-2]) # 녕 하
+print(stdList[1:]) # 녕 하 세 요
+print(stdList[:]) # 안 녕 하 세 요
+print(stdList[1:100]) # 녕 하 세 요 (stdList[1:]와 동일 문자열 최대 길이만큼 표현0
+print(stdList[-1]) # 요
+print(stdList[-4]) # 녕
+print(stdList[:-3]) # 안 녕
+print(stdList[-3:]) # 하 세 요
+print(stdList[::1]) # 1은 기본값으로 동일, 안 녕 하 세 요
+print(stdList[::-1]) # 뒤집는다. 요 세 하 녕 안
+
+
+
+
+
+
+# time.sleep(60)
