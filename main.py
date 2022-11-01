@@ -24,7 +24,7 @@ def delay(timeVal):
     if timeVal < 100 :
         print(timeVal,'보다 작다.')
     return 0
-delay(10)
+# delay(10)
 
 # 슬라이싱
 # 0,1,2,3,4
@@ -41,10 +41,6 @@ print(stdList[:-3]) # 안 녕
 print(stdList[-3:]) # 하 세 요
 print(stdList[::1]) # 1은 기본값으로 동일, 안 녕 하 세 요
 print(stdList[::-1]) # 뒤집는다. 요 세 하 녕 안
-
-
-
-
-
+print(stdList[4:1:-1]) # -1은 역방향 슬라이싱 4번 -> 2번(1번 만나기 전)까지 요, 세, 하
 
 # time.sleep(60)
