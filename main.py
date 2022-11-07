@@ -27,7 +27,7 @@ driver.switch_to.alert.accept()
 
 # ctr+클릭하여 새 창 열고 이동
 from selenium.webdriver.common.keys import Keys
-target = driver.find_elements(By.CSS_SELECTOR,'#a-link')  # 클릭하고 싶은 것 선택
+target = driver.find_elements(By.CSS_SELECTOR,'a#a-link')  # 클릭하고 싶은 것 선택
 target.send_keys(Keys.CONTROL +"\n")
 
 
