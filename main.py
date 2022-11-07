@@ -14,33 +14,33 @@ driver = webdriver.Chrome(service=Service(DRIVER_PATH),options=OPTIONS)
 driver.implicitly_wait(5)
 
 # 프로젝트 관련 코드
-# driver.get('http://drkus.dothome.co.kr/')
+driver.get('http://drkus-dev.github.io')
 # imgObj = driver.find_elements(By.CSS_SELECTOR,'div.jumbotron')
 # print(imgObj[0].text)
 
-#파이썬 문법
-def delay(timeVal):
-    time.sleep(timeVal)
-    if timeVal < 100 :
-        print(timeVal,'보다 작다.')
-    return 0
-# delay(10)
+#경고 창 다루기
+# from selenium.webdriver.common.alert import Alert
 
-# 슬라이싱
-# 0,1,2,3,4
-# -5,-4,-3,-2,-1
-stdList = ['안','녕','하','세','요']
-print(stdList[1:3]) # 녕 하
-print(stdList[1:-2]) # 녕 하
-print(stdList[1:]) # 녕 하 세 요
-print(stdList[:]) # 안 녕 하 세 요
-print(stdList[1:100]) # 녕 하 세 요 (stdList[1:]와 동일 문자열 최대 길이만큼 표현0
-print(stdList[-1]) # 요
-print(stdList[-4]) # 녕
-print(stdList[:-3]) # 안 녕
-print(stdList[-3:]) # 하 세 요
-print(stdList[::1]) # 1은 기본값으로 동일, 안 녕 하 세 요
-print(stdList[::-1]) # 뒤집는다. 요 세 하 녕 안
-print(stdList[4:1:-1]) # -1은 역방향 슬라이싱 4번 -> 2번(1번 만나기 전)까지 요, 세, 하
+driver.implicitly_wait(10)
+# driver.switch_to.alert.dismiss()
+driver.switch_to.alert.accept()
 
-# time.sleep(60)
+# ctr+클릭하여 새 창 열고 이동
+from selenium.webdriver.common.keys import Keys
+target = driver.find_elements(By.CSS_SELECTOR,'#a-link')  # 클릭하고 싶은 것 선택
+target.send_keys(Keys.CONTROL +"\n")
+
+
+
+
+# Alert(driver).dismiss()
+# dd = Alert(driver).getText()
+
+
+
+
+
+
+
+
+
